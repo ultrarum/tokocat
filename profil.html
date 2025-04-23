@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil Saya - Toko Cat Promax</title>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f3f3;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #232f3e;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #ff9900;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff9900;
+    }
+
+    /* Tautan Beranda di Header */
+    .header-links a {
+      color: #fff;
+      margin-right: 20px;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .header-links a:hover {
+      color: #ff9900;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: flex;
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      height: fit-content;
+    }
+
+    .sidebar h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+      color: #232f3e;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #007185;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: color 0.3s ease;
+    }
+
+    .sidebar ul li a:hover {
+      color: #ff9900;
+    }
+
+    .sidebar ul li a i {
+      font-size: 20px;
+    }
+
+    .profile-content {
+      flex: 1;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-section {
+      margin-bottom: 40px;
+    }
+
+    .profile-section h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      color: #232f3e;
+    }
+
+    .profile-info p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 12px 25px;
+      background-color: #ffd814;
+      color: #111;
+      border: 1px solid #fcd200;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #f7ca00;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: #232f3e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #ff9900;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .profile-content {
+        padding: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .logo {
+        margin-bottom: 15px;
+      }
+
+      .sidebar ul li a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Toko Cat Promax</div>
+    <!-- Tautan Beranda -->
+    <div class="header-links">
+      <a href="index.html">Beranda</a>
+      <a href="#">Layanan</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Bantuan</a>
+    </div>
+    <div>Halo, <strong>Andi</strong></div>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Akun Saya</h3>
+      <ul>
+        <li><a href="#"><i class="fa-solid fa-user"></i> Informasi Pribadi</a></li>
+        <li><a href="#"><i class="fa-solid fa-location-dot"></i> Alamat Pengiriman</a></li>
+        <li><a href="#"><i class="fa-solid fa-box"></i> Pesanan Saya</a></li>
+        <li><a href="#"><i class="fa-solid fa-lock"></i> Keamanan Akun</a></li>
+      </ul>
+    </aside>
+    
+    <!-- Profile Content -->
+    <div class="profile-content">
+      <div class="profile-section">
+        <h2>Informasi Pribadi</h2>
+        <div class="profile-info">
+          <p><strong>Nama:</strong> Andi Saputra</p>
+          <p><strong>Email:</strong> andi@example.com</p>
+          <p><strong>Nomor HP:</strong> 0812-3456-7890</p>
+          <a href="#" class="btn">Edit Profil</a>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Alamat Pengiriman</h2>
+        <div class="profile-info">
+          <p><strong>Alamat:</strong> Jl. Merdeka No. 123, Jakarta</p>
+          <p><strong>Kode Pos:</strong> 10110</p>
+          <a href="#" class="btn">Kelola Alamat</a>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Pesanan Saya</h2>
+        <div class="profile-info">
+          <p><strong>Status:</strong> 2 pesanan dalam proses</p>
+          <a href="#" class="btn">Lihat Riwayat Pesanan</a>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Keamanan Akun</h2>
+        <div class="profile-info">
+          <a href="#" class="btn">Ubah Kata Sandi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Toko Cat Promax. Semua hak dilindungi.</p>
+    <p><a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keranjang Belanja Anda</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #232f3e;
+      color: white;
+      padding: 15px 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .cart-items {
+      flex: 2;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .cart-items h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
+
+    .cart-item img {
+      width: 120px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-details h4 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .item-details p {
+      margin: 5px 0;
+      color: #b12704;
+      font-weight: bold;
+    }
+
+    .sidebar {
+      flex: 1;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      height: fit-content;
+    }
+
+    .sidebar h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .checkout-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ffd814;
+      color: #111;
+      border: 1px solid #fcd200;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .checkout-button:hover {
+      background-color: #f7ca00;
+    }
+
+    .payment-methods {
+      margin-top: 30px;
+    }
+
+    .payment-methods h4 {
+      margin-bottom: 10px;
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .payment-option input {
+      margin-right: 10px;
+    }
+
+    footer {
+      background-color: #232f3e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #ff9900;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cart-item img {
+        margin-bottom: 10px;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Keranjang Belanja Anda
+  </header>
+
+  <form action="pembayaran.html" method="post">
+    <div class="container">
+      <!-- Daftar Produk -->
+      <div class="cart-items">
+        <h2>Daftar Produk</h2>
+        
+        <div class="cart-item">
+          <img src="cat1.jpg" alt="Dulux 5L">
+          <div class="item-details">
+            <h4>Dulux Catylac 5L</h4>
+            <p>Rp 250.000</p>
+            <small>Jumlah: 2</small><br>
+            <small>Total: <strong>Rp 500.000</strong></small>
+          </div>
+        </div>
+
+        <!-- Tambah item di sini jika ada -->
+
+      </div>
+
+      <!-- Sidebar Total & Pembayaran -->
+      <div class="sidebar">
+        <h3>Ringkasan Pesanan</h3>
+        <p><strong>Total Belanja: Rp 500.000</strong></p>
+
+        <button class="checkout-button" type="submit">
+          Lanjutkan ke Pembayaran
+        </button>
+
+        <div class="payment-methods">
+          <h4>Pilih Metode Pembayaran:</h4>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="Bank Transfer" required>
+            <span><i class="fa-solid fa-building-columns"></i> Bank Transfer</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="Kartu Kredit">
+            <span><i class="fa-solid fa-credit-card"></i> Kartu Kredit</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="DANA">
+            <span><i class="fa-brands fa-google-wallet"></i> DANA</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="GoPay">
+            <span><i class="fa-brands fa-cc-apple-pay"></i> GoPay</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="OVO">
+            <span><i class="fa-solid fa-wallet"></i> OVO</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <footer>
+    <p>&copy; 2025 Toko Cat Promax. Semua hak dilindungi.</p>
+    <p><a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a></p>
+  </footer>
+
+</body>
+</html>

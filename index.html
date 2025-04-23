@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toko Cat Promax</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #232f3e;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;    
+    }
+
+    .set_location {
+      font-size: 14px;
+    }
+
+    .search_box {
+      display: flex;
+      flex-grow: 1;
+      margin: 10px 20px;
+    }
+
+    .search_box input {
+      padding: 10px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      flex-grow: 1;
+    }
+
+    .search_box button {
+      padding: 10px 15px;
+      background-color: #ff9900;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      color: white;
+      cursor: pointer;
+    }
+
+    .search_box button:hover {
+      background-color: #e68900;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #ff9900;
+    }
+
+    .advertisement {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .advertisement img {
+      width: 100%;
+      max-width: 49%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Kategori Persegi */
+    .square-categories {
+      display: flex;
+      gap: 57px;
+      padding: 20px;
+      margin: 20px;
+      overflow-x: auto;
+    }
+
+    .square-item {
+      background-color: #ffffff;
+      color: #232f3e;
+      padding: 20px;
+      min-width: 80px;
+      height: 40px;
+      text-align: center;
+      border: 2px solid #ff9900;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      font-weight: bold;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+
+    .square-item:hover {
+      background-color: #ff9900;
+      color: white;
+      cursor: pointer;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .product-list {
+      flex: 3;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .product-card h3 {
+      font-size: 18px;
+      margin: 12px 0 5px;
+    }
+
+    .product-card p {
+      font-size: 16px;
+      color: #ff6600;
+      font-weight: bold;
+    }
+
+    .sidebar-ad {
+      flex: 1;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+    }
+
+    .sidebar-ad img {
+      width: 100%;
+      max-width: 300px;
+      height: 250px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #232f3e;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    footer ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    footer ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer ul li a:hover {
+      color: #ff9900;
+    }
+
+    @media (max-width: 768px) {
+      .advertisement img {
+        max-width: 100%;
+        height: 200px;
+      }
+
+      .sidebar-ad {
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      .sidebar-ad img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .search_box {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      main {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">TokoCat</div>
+    <div class="set_location">Indonesia pass</div>
+    <div class="search_box">
+      <input type="text" id="search-input" placeholder="Cari produk..." oninput="filterProducts()">
+      <button>Cari</button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="keranjang.html">Keranjang</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Iklan Utama -->
+  <div class="advertisement">
+    <img src="cat7.jpg" alt="Iklan 1">
+    <img src="cat8.jpg" alt="Iklan 2">
+  </div>
+
+  <!-- Kategori Persegi -->
+  <div class="square-categories">
+    <div class="square-item">Cat Tembok</div>
+    <div class="square-item">Kayu & Besi</div>
+    <div class="square-item">Anti Bocor</div>
+    <div class="square-item">Dasar / Primer</div>
+    <div class="square-item">Cat Eksterior</div>
+    <div class="square-item">Epoxy</div>
+    <div class="square-item">Cat Jamur</div>
+    <div class="square-item">Jat Lumut</div>
+  </div>
+
+  <!-- Produk + Iklan Samping -->
+  <main>
+    <div class="product-list" id="product-list">
+      <div class="product-card" data-name="Nippon Paint">
+        <img src="cat1.jpg" alt="Nippon Paint">
+        <h3>Nippon Paint</h3>
+        <p>Rp 299.000</p>
+      </div>
+      <div class="product-card" data-name="Dulux">
+        <img src="cat2.jpg" alt="Dulux">
+        <h3>Dulux</h3>
+        <p>Rp 299.000</p>
+      </div>
+      <div class="product-card" data-name="Avitex">
+        <img src="cat3.jpg" alt="Avitex">
+        <h3>Avitex</h3>
+        <p>Rp 100.000</p>
+      </div>
+      <div class="product-card" data-name="Jotun">
+        <img src="cat4.jpg" alt="Jotun">
+        <h3>Jotun</h3>
+        <p>Rp 850.000</p>
+      </div>
+      <div class="product-card" data-name="Mowilex">
+        <img src="cat5.jpg" alt="Mowilex">
+        <h3>Mowilex</h3>
+        <p>Rp 450.000</p>
+      </div>
+      <div class="product-card" data-name="Aquaproof">
+        <img src="cat6.jpg" alt="Aquaproof">
+        <h3>Aquaproof</h3>
+        <p>Rp 399.000</p>
+      </div>
+      <div class="product-card" data-name="Sherwin-Williams">
+        <img src="cat9.jpg" alt="Sherwin-Williams">
+        <h3>Sherwin-Williams</h3>
+        <p>Rp 399.000</p>
+      </div>
+      <div class="product-card" data-name="Kilz">
+        <img src="cat10.jpg" alt="Kilz">
+        <h3>Kilz</h3>
+        <p>Rp 399.000</p>
+      </div>
+    </div>
+
+    <aside class="sidebar-ad">
+      <img src="cat8.jpg" alt="Iklan Samping 1">
+      <img src="cat7.jpg" alt="Iklan Samping 2">
+    </aside>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="#">Tentang Kami</a></li>
+      <li><a href="#">Syarat & Ketentuan</a></li>
+      <li><a href="#">Kebijakan Privasi</a></li>
+      <li><a href="#">Hubungi Kami</a></li>
+    </ul>
+    <p>&copy; 2025 Toko Cat Promax. Semua hak dilindungi.</p>
+  </footer>
+
+  <script>
+    function filterProducts() {
+      const searchInput = document.getElementById('search-input').value.toLowerCase();
+      const products = document.querySelectorAll('.product-card');
+
+      products.forEach(product => {
+        const productName = product.getAttribute('data-name').toLowerCase();
+        if (productName.includes(searchInput)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
